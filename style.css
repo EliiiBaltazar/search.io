@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('BG.GIF.gif') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.search-popup {
+    display: none; /* Hide it initially */
+    position: absolute;
+    top: 100%; /* Just below the input box */
+    left: 0;
+    background: linear-gradient(to right, #ff85a2, #ff5788); /* Example pink gradient */
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(241, 0, 197, 0.2);
+    z-index: 10;
+}
+.search::placeholder {
+    color: #f962c4; /* Example: A medium shade of gray */
+    opacity: 1; /* Ensure full opacity */
+}
+
+
+
+.container {
+    position: relative;
+    height: 5rem;
+
+
+    .search {
+        background-color: transparent;
+        transition: width 0.5s ease-in-out;
+        border-radius: 0.2rem;
+        border: 0;
+        height: 3rem;
+        width: 3rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        color: #69ffc1;
+    }  
+
+    button {
+        background: linear-gradient(to right, #ff85a2, #ff5788); /* Example pink gradient */
+        border: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3rem;
+        width: 3rem;
+        transition: all 0.5s ease-in-out;
+        outline: none;
+        border-radius: 0.2rem;
+        box-shadow: 0 4px 6px rgba(255, 105, 135, 0.4); /* Soft shadow to complement the gradient */
+        /* Alternatively, for a more complex shadow effect, you might use filters */
+        filter: drop-shadow(0 4px 6px rgba(255, 105, 135, 0.4));
+    
+    
+
+        &.active {
+            margin-left: 0.5rem;
+        }
+
+        .fa-times{
+            opacity: 0;
+            position: absolute;
+            left: 50%;
+            top: 38%;
+            transform: translate(-50%);
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        .fa-search {
+            opacity: 1;
+
+            &.active {
+                opacity: 0;
+            }
+        }
+    }
+
+    &.active {
+        .search{
+            width: 20rem;
+        }
+
+        button {
+            transform: translate(20rem);
+            background-color: pink;
+        }
+    }
+}
